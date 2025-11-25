@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form class="login-box" onsubmit="return validateLogin()">
+            <h2>Login</h2>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Enter username" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+            <p id="message"></p>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+            let message = document.getElementById("message");
+
+            // Example static login credentials
+            if (user === "admin" && pass === "1234") {
+                message.style.color = "lime";
+                message.innerHTML = "Login Successful!";
+                return false; // stop form redirect for demo
+            } else {
+                message.style.color = "red";
+                message.innerHTML = "Invalid username or password!";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
